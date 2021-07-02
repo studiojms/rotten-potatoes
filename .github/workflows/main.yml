@@ -36,8 +36,8 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: |
-            caiogrossi/rotten-potatoes:latest
-            caiogrossi/rotten-potatoes:${{ github.run_number }}
+            jmstudio/rotten-potatoes:latest
+            jmstudio/rotten-potatoes:${{ github.run_number }}
             
   CD:
    runs-on: ubuntu-latest
@@ -60,4 +60,4 @@ jobs:
       with:        
         manifests: |
           k8s/web/deployment.yaml
-        images: caiogrossi/rotten-potatoes:${{ github.run_number }}
+        images: jmstudio/rotten-potatoes:${{ github.run_number }}
