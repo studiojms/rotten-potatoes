@@ -44,21 +44,21 @@ jobs:
    needs: [CI]
    steps:
     - uses: actions/checkout@v2
-#     - name: Kubernetes set context
-#       uses: Azure/k8s-set-context@v1.1
-#       with:
-#         method: kubeconfig
-#         kubeconfig: ${{ secrets.KUBE_K8S_CONFIG }}
-#     - name: Deploy Mongo
-#       uses: Azure/k8s-deploy@v1
-#       with:
-#         manifests: |
-#           k8s/mongodb/deployment.yaml
-#           k8s/mongodb/service.yaml
-#     - name: Deploy Web
-#       uses: Azure/k8s-deploy@v1
-#       with:
-#         manifests: |
-#           k8s/web/deployment.yaml
-#           k8s/web/service.yaml
-#         images: jmsstudio/rotten-potatoes:${{ github.run_number }}
+    - name: Kubernetes set context
+      uses: Azure/k8s-set-context@v1.1
+      with:
+        method: kubeconfig
+        kubeconfig: ${{ secrets.KUBE_K8S_CONFIG }}
+    - name: Deploy Mongo
+      uses: Azure/k8s-deploy@v1
+      with:
+        manifests: |
+          k8s/mongodb/deployment.yaml
+          k8s/mongodb/service.yaml
+    - name: Deploy Web
+      uses: Azure/k8s-deploy@v1
+      with:
+        manifests: |
+          k8s/web/deployment.yaml
+          k8s/web/service.yaml
+        images: jmsstudio/rotten-potatoes:${{ github.run_number }}
