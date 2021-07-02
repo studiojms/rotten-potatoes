@@ -40,7 +40,7 @@ jobs:
             jmsstudio/rotten-potatoes:${{ github.run_number }}
             
   CD:
-   runs-on: ubuntu-latest
+   runs-on: self-hosted
    needs: [CI]
    steps:
     - uses: actions/checkout@v2
